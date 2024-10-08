@@ -17,7 +17,7 @@ kvmd:
         type: otg
 
     atx:
-        type: gpio
+        type: disabled
 
     msd:
         type: otg
@@ -27,29 +27,29 @@ kvmd:
             default: 5000
         cmd:
             - "/usr/bin/ustreamer"
-            - "--device=/dev/kvmd-video"
-            - "--persistent"
-            - "--dv-timings"
-            - "--format=uyvy"
-            - "--buffers=6"
-            - "--encoder=m2m-image"
-            - "--workers=3"
-            - "--quality={quality}"
-            - "--desired-fps={desired_fps}"
-            - "--drop-same-frames=30"
-            - "--unix={unix}"
-            - "--unix-rm"
-            - "--unix-mode=0660"
-            - "--exit-on-parent-death"
-            - "--process-name-prefix={process_name_prefix}"
-            - "--notify-parent"
-            - "--no-log-colors"
-            - "--jpeg-sink=kvmd::ustreamer::jpeg"
-            - "--jpeg-sink-mode=0660"
-            - "--h264-sink=kvmd::ustreamer::h264"
-            - "--h264-sink-mode=0660"
-            - "--h264-bitrate={h264_bitrate}"
-            - "--h264-gop={h264_gop}"
+            - "--device=/dev/video0"
+            # - "-s 0.0.0.0"
+            - "-r 1920x1080"
+            - "--venc-format=1"
+            - "--tcp-nodelay"
+            - "--vi-buffer-num=3"
+            - "--vi-format=19"
+            # - "--persistent"
+            # - "--dv-timings"
+            # - "--desired-fps={desired_fps}"
+            # - "--unix={unix}"
+            # - "--unix-rm"
+            # - "--unix-mode=0660"
+            # - "--exit-on-parent-death"
+            # - "--process-name-prefix={process_name_prefix}"
+            # - "--notify-parent"
+            # - "--no-log-colors"
+            # - "--jpeg-sink=kvmd::ustreamer::jpeg"
+            # - "--jpeg-sink-mode=0660"
+            # - "--h264-sink=kvmd::ustreamer::h264"
+            # - "--h264-sink-mode=0660"
+            # - "--h264-bitrate={h264_bitrate}"
+            # - "--h264-gop={h264_gop}"
 
     gpio:
         scheme:
